@@ -7,11 +7,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <div class="playlist-full-image">
       <img src="/images/dallas1.jpg" alt="City and Colour live" />
     </div>
-
-    <!-- Dark overlay on top of the image -->
+    
     <div class="playlist-full-overlay"></div>
 
-    <!-- Content on top -->
     <div class="playlist-full-content">
       <section class="playlist-header">
         <h1 class="playlist-title">Playlist</h1>
@@ -23,7 +21,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </section>
 
       <section class="playlist-grid">
-        <!-- LEFT: playlist and shuffle -->
         <div class="playlist-panel">
           <div class="playlist-panel-header">
             <h2>Current playlist</h2>
@@ -33,11 +30,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </div>
 
           <ul id="playlist-list" class="playlist-list">
-            <!-- JS will render songs here -->
           </ul>
         </div>
 
-        <!-- RIGHT: form to add songs -->
+    
         <div class="playlist-form-panel">
           <h2>Add your own song</h2>
           <p class="playlist-form-text">
@@ -76,9 +72,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     </div>
   </main>
 
-  <!-- JavaScript for shuffle + add songs + small UI effects -->
   <script type="module">
-    // Initial songs in the playlist
     const initialSongs = [
       { title: "The Girl", album: "Bring Me Your Love (2008)" },
       { title: "Sleeping Sickness", album: "Bring Me Your Love (2008)" },
@@ -120,7 +114,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         listEl.appendChild(li);
       });
 
-      // se for um novo item adicionado, destaca o último por alguns instantes
       if (highlightLast) {
         const lastItem = listEl.lastElementChild;
         if (lastItem) {
@@ -133,7 +126,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     }
 
     function shuffleSongs() {
-      // Fisher–Yates shuffle
       for (let i = songs.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [songs[i], songs[j]] = [songs[j], songs[i]];
@@ -169,7 +161,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       titleInput.focus();
     });
 
-    // Initial render
     renderList();
   </script>
 </BaseLayout>

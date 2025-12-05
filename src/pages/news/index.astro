@@ -3,7 +3,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const posts = await Astro.glob("./*.md");
 
-// sort posts by date (newest first)
 posts.sort(
   (a, b) =>
     new Date(b.frontmatter.date).getTime() -
@@ -16,7 +15,6 @@ posts.sort(
   description="Fictional news and tour updates about City and Colour, created as part of an academic project."
 >
   <main class="news-hero">
-    <!-- imagem de fundo -->
     <div class="news-hero-image-layer">
       <img
         src="/images/dallas5.jpg"
@@ -25,10 +23,8 @@ posts.sort(
       />
     </div>
 
-    <!-- overlay escuro -->
     <div class="news-hero-overlay"></div>
 
-    <!-- conteúdo por cima -->
     <div class="news-hero-content">
       <header class="news-hero-header">
         <h1 class="news-heading">News &amp; Tour</h1>

@@ -34,10 +34,9 @@ main {
     background: #000;
 }
 
-
 .site-title {
     font-size: 16px;
-    font-weight: 600;   /* ← MAIS GROSSO */
+    font-weight: 600;   
     color: #ffffff;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -96,16 +95,14 @@ main {
 .hero-line {
     width: 100%;
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.25); /* linha branca suave */
+    border-top: 1px solid rgba(255, 255, 255, 0.25); 
     margin: 0;
 }
-
-/* HOME – FULL BACKGROUND SLIDESHOW COM TEXTO EM CIMA */
 
 .home-hero {
     position: relative;
     width: 100%;
-    min-height: calc(100vh - 140px); /* quase a tela toda, considerando header/footer */
+    min-height: calc(100vh - 140px); 
     overflow: hidden;
     background: #000;
     display: flex;
@@ -114,7 +111,6 @@ main {
     padding: 10px 60px;
 }
 
-/* camada da imagem de fundo */
 .home-hero-image-layer {
     position: absolute;
     inset: 0;
@@ -132,12 +128,10 @@ main {
     transition: opacity 1.2s ease-in-out;
 }
 
-/* classe aplicada quando a imagem deve aparecer */
 .home-hero-image.fade-in {
     opacity: 1;
 }
 
-/* overlay escuro por cima da imagem */
 .home-hero-overlay {
     position: absolute;
     inset: 0;
@@ -154,11 +148,11 @@ main {
     position: relative;
     z-index: 2;
     max-width: 780px;
-    margin: 0 auto;                 /* 🔥 centraliza todo o bloco */
+    margin: 0 auto;                
     display: flex;
     flex-direction: column;
-    align-items: center;            /* 🔥 garante alinhamento horizontal */
-    text-align: center;             /* 🔥 centraliza o texto */
+    align-items: center;           
+    text-align: center;             
     color: #f4efe8;
 }
 
@@ -170,7 +164,7 @@ main {
     text-transform: uppercase;
     margin-bottom: 18px;
     color: #f5f0e5;
-    white-space: nowrap;  /* 🔒 sempre 1 linha */
+    white-space: nowrap;
 }
 
 .home-hero-text {
@@ -179,10 +173,8 @@ main {
     line-height: 1.8;
     max-width: 520px;
     color: #e4ddcf;
-    text-align: center;   /* 🔥 centralizado */
+    text-align: center;
 }
-
-/* responsivo – centraliza melhor em telas menores */
 
 @media (max-width: 900px) {
     .home-hero {
@@ -215,7 +207,6 @@ main {
     }
 }
 
-
 .about-button {
     display: inline-block;
     border: 1px solid #000;
@@ -234,13 +225,10 @@ main {
     color: #fff;
 }
 
-
-/* ABOUT PAGE – FULL BACKGROUND + THREE CARDS WITH ANIMATION */
-
 .about-hero {
     position: relative;
     width: 100%;
-    min-height: calc(100vh - 140px); /* header + footer */
+    min-height: calc(100vh - 140px); 
     overflow: hidden;
     background: #000;
     display: flex;
@@ -248,8 +236,6 @@ main {
     justify-content: center;
     padding: 100px 60px 120px;
 }
-
-/* camada de imagem de fundo */
 
 .about-hero-image-layer {
     position: absolute;
@@ -267,8 +253,6 @@ main {
     filter: brightness(0.8);
 }
 
-/* overlay escuro */
-
 .about-hero-overlay {
     position: absolute;
     inset: 0;
@@ -276,8 +260,6 @@ main {
     background: radial-gradient(circle at top left, rgba(0,0,0,0.3), rgba(0,0,0,0.85)),
                 linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
 }
-
-/* conteúdo por cima */
 
 .about-hero-content {
     position: relative;
@@ -289,8 +271,6 @@ main {
     flex-direction: column;
     gap: 28px;
 }
-
-/* header do about */
 
 .about-hero-header {
     max-width: 640px;
@@ -313,15 +293,11 @@ main {
     color: #ddd2c2;
 }
 
-/* cards container */
-
 .about-cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
-
-/* cada card */
 
 .about-card {
     background: rgba(10, 9, 9, 0.88);
@@ -339,8 +315,6 @@ main {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* animações em sequência */
-
 .about-card:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -352,8 +326,6 @@ main {
 .about-card:nth-child(3) {
     animation-delay: 0.5s;
 }
-
-/* conteúdo dentro do card */
 
 .about-card-title {
     font-size: 15px;
@@ -372,15 +344,11 @@ main {
     text-justify: inter-word;
 }
 
-/* hover */
-
 .about-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 24px 46px rgba(0, 0, 0, 0.65);
     border-color: rgba(244, 239, 232, 0.4);
 }
-
-/* keyframes */
 
 @keyframes about-card-fade-up {
     from {
@@ -392,8 +360,6 @@ main {
         transform: translateY(0);
     }
 }
-
-/* RESPONSIVE – empilha as cartas em telas menores */
 
 @media (max-width: 1000px) {
     .about-hero {
@@ -419,9 +385,6 @@ main {
         grid-template-columns: minmax(0, 1fr);
     }
 }
-
-
-/* FOOTER */
 
 .site_footer {
     width: 100%;
@@ -507,8 +470,6 @@ main {
     opacity: 0.95;
 }
 
-/* HEADER + FOOTER RESPONSIVE */
-
 @media (max-width: 800px) {
     .hero-header {
         flex-direction: column;
@@ -532,8 +493,6 @@ main {
     }
 }
 
-/* ABOUT FULL RESPONSIVE */
-
 @media (max-width: 900px) {
     .about-full {
         padding: 60px 24px;
@@ -545,8 +504,6 @@ main {
     }
 }
 
-/* NEWS PAGE – FULL BACKGROUND + CARDS (ESTILO ABOUT) */
-
 .news-hero {
     position: relative;
     width: 100%;
@@ -556,11 +513,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 60px 110px; /* menos padding para mostrar mais imagem */
+    padding: 80px 60px 110px;
 }
-
-
-/* camada de imagem de fundo */
 
 .news-hero-image-layer {
     position: absolute;
@@ -578,11 +532,8 @@ main {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.65); /* deixa mais visível */
+    filter: brightness(0.65);
 }
-
-
-/* overlay escuro */
 
 .news-hero-overlay {
     position: absolute;
@@ -595,9 +546,6 @@ main {
     );
 }
 
-
-/* conteúdo por cima */
-
 .news-hero-content {
     position: relative;
     z-index: 2;
@@ -606,12 +554,9 @@ main {
     color: #f5f0e5;
     display: flex;
     flex-direction: column;
-    gap: 36px; /* mais respirado sobre a imagem */
-    padding-top: 40px; /* afasta o título do topo */
+    gap: 36px; 
+    padding-top: 40px;
 }
-
-
-/* header */
 
 .news-hero-header {
     max-width: 640px;
@@ -634,15 +579,11 @@ main {
     color: #ddd2c2;
 }
 
-/* grid de cards – inspirada no about-cards */
-
 .news-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
-
-/* cada card individual */
 
 .news-card {
     background: rgba(10, 9, 9, 0.9);
@@ -662,8 +603,6 @@ main {
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* animação em sequência (igual about, mas pra news) */
-
 .news-card:nth-child(1) {
     animation-delay: 0.1s;
 }
@@ -673,8 +612,6 @@ main {
 .news-card:nth-child(3) {
     animation-delay: 0.5s;
 }
-
-/* imagem dentro do card */
 
 .news-card-image {
     overflow: hidden;
@@ -687,8 +624,6 @@ main {
     object-fit: cover;
     display: block;
 }
-
-/* texto do card */
 
 .news-card-content {
     display: flex;
@@ -719,15 +654,11 @@ main {
     color: #e4ddcf;
 }
 
-/* hover */
-
 .news-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 24px 46px rgba(0, 0, 0, 0.65);
     border-color: rgba(244, 239, 232, 0.4);
 }
-
-/* animação */
 
 @keyframes news-card-fade-up {
     from {
@@ -739,8 +670,6 @@ main {
         transform: translateY(0);
     }
 }
-
-/* RESPONSIVE */
 
 @media (max-width: 1000px) {
     .news-hero {
@@ -766,9 +695,6 @@ main {
         grid-template-columns: minmax(0, 1fr);
     }
 }
-
-
-/* SINGLE NEWS POST */
 
 .news-post {
     width: 100%;
@@ -845,8 +771,6 @@ main {
     }
 }
 
-/* BACK BUTTON IN POSTS */
-
 .back-button {
     display: inline-block;
     font-size: 13px;
@@ -864,8 +788,6 @@ main {
     border-color: #111;
     opacity: 0.8;
 }
-
-/* PLAYLIST PAGE – FULL BACKGROUND IMAGE + OVERLAY */
 
 .playlist-full {
     position: relative;
@@ -1058,7 +980,6 @@ main {
     border-color: #f4efe8;
 }
 
-/* efeito de hover nos itens da playlist */
 .playlist-item {
     padding: 4px 0;
     border-radius: 6px;
@@ -1085,9 +1006,6 @@ main {
     100% { transform: scale(1); }
 }
 
-
-
-/* pequeno efeito quando a playlist é embaralhada */
 .playlist-list--shuffling .playlist-item {
     animation: playlist-shuffle-items 0.4s ease-in-out;
 }

@@ -6,10 +6,8 @@ heroImage: "/images/lullaby.jpg"
 excerpt: "City and Colour has reimagined his debut record Sometimes in the form of lullabies."
 ---
 
-City and Colour has reimagined his debut record Sometimes in the form of lullabies. This new iteration of the record, called Sometimes Lullaby, is out Friday (November 28) via Dine Alone.
+City and Colour released a lullaby version of his debut album Sometimes, and I thought it was such a sweet idea. The new version is called Sometimes Lullaby and it came out on Friday, November 28, through Dine Alone. Apparently, Dallas Green first worked on this during the COVID years, and now he’s finally putting it out to celebrate the 20th anniversary of the original record. I thought it was such a cool idea, since so many people grew up listening to this album and now have kids of their own.
 
-The album was originally a COVID project of Dallas Green's, and is now seeing the light of day to celebrate the 20th anniversary of Sometimes. It's an apt addition to his catalogue, considering noughties emos are now at child-rearing age.
+Dallas said that the idea was to turn Sometimes into a dreamy lullaby album, both for new listeners and for longtime fans who just want things to slow down a bit.
 
-"We wanted to remake ‘Sometimes’ into a dreamy little lullaby album for brand new City and Colour fans….and longtime ones who just want the world to slow down a little." says Dallas Green.
-
-Sometimes Lullaby will be available digitally and on special edition vinyl for Record Store Day Black Friday. The album — as well as some limited edition merch — will be available online on City and Colour's website starting November 28 at 10 a.m. ET. Records can be purchased in person at the Dine Alone Store on the same day from 9 a.m. to 6 p.m.
+The album is available digitally and as a special edition vinyl for Record Store Day Black Friday. There is also some limited merch online and the vinyl is also being sold in person at the Dine Alone Store.

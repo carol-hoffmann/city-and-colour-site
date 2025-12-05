@@ -1,0 +1,175 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Playlist · City and Colour">
+  <main class="playlist-full">
+    <div class="playlist-full-image">
+      <img src="/images/dallas1.jpg" alt="City and Colour live" />
+    </div>
+
+    <!-- Dark overlay on top of the image -->
+    <div class="playlist-full-overlay"></div>
+
+    <!-- Content on top -->
+    <div class="playlist-full-content">
+      <section class="playlist-header">
+        <h1 class="playlist-title">Playlist</h1>
+        <p class="playlist-intro">
+          A small, personal selection of City and Colour songs. You can shuffle the order
+          or add your own favourites to the list. This is not an official playlist, but
+          a fan-made collection created as part of a university project.
+        </p>
+      </section>
+
+      <section class="playlist-grid">
+        <!-- LEFT: playlist and shuffle -->
+        <div class="playlist-panel">
+          <div class="playlist-panel-header">
+            <h2>Current playlist</h2>
+            <button id="shuffle-button" type="button" class="playlist-button">
+              Shuffle playlist
+            </button>
+          </div>
+
+          <ul id="playlist-list" class="playlist-list">
+            <!-- JS will render songs here -->
+          </ul>
+        </div>
+
+        <!-- RIGHT: form to add songs -->
+        <div class="playlist-form-panel">
+          <h2>Add your own song</h2>
+          <p class="playlist-form-text">
+            Share a song that means something to you. It will be added to the end of the
+            playlist and can also be shuffled with the others.
+          </p>
+
+          <form id="add-song-form" class="playlist-form">
+            <div class="form-row">
+              <label for="song-title">Song title *</label>
+              <input
+                type="text"
+                id="song-title"
+                name="song-title"
+                required
+                placeholder="e.g. The Girl"
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="song-album">Album (optional)</label>
+              <input
+                type="text"
+                id="song-album"
+                name="song-album"
+                placeholder="e.g. Bring Me Your Love"
+              />
+            </div>
+
+            <button type="submit" class="playlist-button">
+              Add song
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- JavaScript for shuffle + add songs + small UI effects -->
+  <script type="module">
+    // Initial songs in the playlist
+    const initialSongs = [
+      { title: "The Girl", album: "Bring Me Your Love (2008)" },
+      { title: "Sleeping Sickness", album: "Bring Me Your Love (2008)" },
+      { title: "Lover Come Back", album: "If I Should Go Before You (2015)" },
+      { title: "Northern Wind", album: "Little Hell (2011)" },
+      { title: "Hello, I'm in Delaware", album: "Sometimes (2005)" },
+      { title: "Against the Grain", album: "Little Hell (2011)" },
+      { title: "Fragile Birds", album: "Little Hell (2011)" },
+      { title: "Comin' Home", album: "Sometimes (2005)" }
+    ];
+
+    let songs = [...initialSongs];
+
+    const listEl = document.querySelector("#playlist-list");
+    const shuffleBtn = document.querySelector("#shuffle-button");
+    const form = document.querySelector("#add-song-form");
+    const titleInput = document.querySelector("#song-title");
+    const albumInput = document.querySelector("#song-album");
+
+    function renderList({ highlightLast = false } = {}) {
+      if (!listEl) return;
+
+      listEl.innerHTML = "";
+
+      songs.forEach((song, index) => {
+        const li = document.createElement("li");
+        li.className = "playlist-item";
+
+        li.innerHTML = `
+          <span class="playlist-index">${index + 1}.</span>
+          <span class="playlist-song-title">${song.title}</span>
+          ${
+            song.album
+              ? `<span class="playlist-album">– ${song.album}</span>`
+              : ""
+          }
+        `;
+
+        listEl.appendChild(li);
+      });
+
+      // se for um novo item adicionado, destaca o último por alguns instantes
+      if (highlightLast) {
+        const lastItem = listEl.lastElementChild;
+        if (lastItem) {
+          lastItem.classList.add("playlist-item--new");
+          setTimeout(() => {
+            lastItem.classList.remove("playlist-item--new");
+          }, 1200);
+        }
+      }
+    }
+
+    function shuffleSongs() {
+      // Fisher–Yates shuffle
+      for (let i = songs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [songs[i], songs[j]] = [songs[j], songs[i]];
+      }
+
+      renderList();
+
+      if (listEl) {
+        listEl.classList.add("playlist-list--shuffling");
+        setTimeout(() => {
+          listEl.classList.remove("playlist-list--shuffling");
+        }, 500);
+      }
+    }
+
+    shuffleBtn?.addEventListener("click", () => {
+      if (songs.length === 0) return;
+      shuffleSongs();
+    });
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const title = titleInput.value.trim();
+      const album = albumInput.value.trim();
+
+      if (!title) return;
+
+      songs.push({ title, album });
+      renderList({ highlightLast: true });
+
+      form.reset();
+      titleInput.focus();
+    });
+
+    // Initial render
+    renderList();
+  </script>
+</BaseLayout>

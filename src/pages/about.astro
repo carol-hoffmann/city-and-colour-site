@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="About · City And Colour"
+  description="Learn more about City and Colour through a short, fan-made overview of Dallas Green’s music and career."
+>
+  <main class="about-hero">
+    <!-- Imagem de fundo -->
+    <div class="about-hero-image-layer">
+      <img
+        src="/images/green.jpeg"
+        alt="City and Colour live in concert"
+        class="about-hero-image"
+      />
+    </div>
+
+    <!-- Overlay escuro -->
+    <div class="about-hero-overlay"></div>
+
+    <!-- Conteúdo por cima -->
+    <div class="about-hero-content">
+      <header class="about-hero-header">
+        <h1 class="about-heading">About City and Colour</h1>
+        <p class="about-subheading">
+          A brief, fan-curated overview of Dallas Green’s solo project, created for an academic assignment.
+        </p>
+      </header>
+
+      <section class="about-cards">
+        <article class="about-card">
+          <h2 class="about-card-title">From Post-Hardcore to Intimate Folk</h2>
+          <p class="about-card-text">
+            Before City and Colour, Dallas Green was known as the vocalist and guitarist of the Canadian
+            post-hardcore band Alexisonfire. City and Colour began as a personal outlet for quieter,
+            more introspective songs that didn’t fit within the energy of a loud, aggressive band. The
+            early recordings were shared online and quickly gained a loyal audience, drawn to the
+            vulnerability and warmth of his acoustic arrangements.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h2 class="about-card-title">Songs About Distance, Loss and Hope</h2>
+          <p class="about-card-text">
+            Across albums such as <em>Sometimes</em>, <em>Bring Me Your Love</em> and
+            <em>Little Hell</em>, City and Colour explores themes of distance, loss, mental health
+            and hope. The project is characterised by emotionally honest lyrics, spacious
+            instrumentation and melodies that feel both fragile and powerful. Many listeners relate
+            to the sense of melancholy and comfort that often coexist in his songs.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <h2 class="about-card-title">A Live Experience Built on Connection</h2>
+          <p class="about-card-text">
+            On stage, City and Colour performances are often intimate, even in large venues. The live
+            arrangements highlight Green’s voice and guitar playing, while giving space for the band
+            to re-interpret older songs. Storytelling, humour and quiet moments between tracks help
+            build a sense of shared experience between the artist and the audience, which is a core
+            part of the project’s appeal.
+          </p>
+        </article>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

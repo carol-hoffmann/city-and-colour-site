@@ -1,0 +1,51 @@
+---
+const { pathname } = Astro.url;
+---
+
+<header class="hero-header header-dark">
+  <div class="header-left">
+    <a href="/" class="site-title">
+      CITY AND COLOUR · FAN SITE
+    </a>
+  </div>
+
+  <div class="header-center">
+    <a href="/" class="header-logo-link">
+      <img
+        src="/images/dallas_logo.png"
+        alt="City and Colour Logo"
+        class="header-logo"
+      />
+    </a>
+  </div>
+
+  <nav class="nav_bar header-right">
+    <ul>
+      <li>
+        <a href="/" class={`nav-link ${pathname === "/" ? "nav-link--active" : ""}`}>
+          HOME
+        </a>
+      </li>
+
+      <li>
+        <a href="/about" class={`nav-link ${pathname.startsWith("/about") ? "nav-link--active" : ""}`}>
+          ABOUT
+        </a>
+      </li>
+
+      <li>
+        <a href="/news" class={`nav-link ${pathname.startsWith("/news") ? "nav-link--active" : ""}`}>
+          NEWS
+        </a>
+      </li>
+
+      <li>
+        <a href="/playlist" class={`nav-link ${pathname.startsWith("/playlist") ? "nav-link--active" : ""}`}>
+          PLAYLIST
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<hr class="hero-line" />

@@ -1,0 +1,66 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = await Astro.glob("./*.md");
+
+// sort posts by date (newest first)
+posts.sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).getTime() -
+    new Date(a.frontmatter.date).getTime()
+);
+---
+
+<BaseLayout 
+  title="News & Tour · City and Colour"
+  description="Fictional news and tour updates about City and Colour, created as part of an academic project."
+>
+  <main class="news-hero">
+    <!-- imagem de fundo -->
+    <div class="news-hero-image-layer">
+      <img
+        src="/images/dallas5.jpg"
+        alt="City and Colour stage lights"
+        class="news-hero-image"
+      />
+    </div>
+
+    <!-- overlay escuro -->
+    <div class="news-hero-overlay"></div>
+
+    <!-- conteúdo por cima -->
+    <div class="news-hero-content">
+      <header class="news-hero-header">
+        <h1 class="news-heading">News &amp; Tour</h1>
+        <p class="news-subheading">
+          Fictional updates and tour notes created for this project, inspired by the atmosphere of
+          City and Colour shows, tours and songwriting.
+        </p>
+      </header>
+
+      <section class="news-grid">
+        {posts.map((post, index) => (
+          <a href={post.url} class="news-card">
+            <div class="news-card-image">
+              {post.frontmatter.heroImage && (
+                <img
+                  src={post.frontmatter.heroImage}
+                  alt={post.frontmatter.title}
+                />
+              )}
+            </div>
+
+            <div class="news-card-content">
+              <p class="news-card-date">{post.frontmatter.date}</p>
+              <h2 class="news-card-title">{post.frontmatter.title}</h2>
+
+              {post.frontmatter.excerpt && (
+                <p class="news-card-excerpt">{post.frontmatter.excerpt}</p>
+              )}
+            </div>
+          </a>
+        ))}
+      </section>
+    </div>
+  </main>
+</BaseLayout>

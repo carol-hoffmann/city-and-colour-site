@@ -1,0 +1,37 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, date, heroImage, excerpt } = frontmatter;
+---
+
+<BaseLayout 
+  title={`${title} · City and Colour`}
+  description={excerpt ?? `News and tour update: ${title}`}
+  image={heroImage ?? "/images/background.jpg"}
+>
+  <main class="news-post">
+    <article class="news-post-article">
+      <!-- Botão de voltar -->
+      <a href="/news" class="back-button">← Back to News</a>
+
+      <!-- Cabeçalho do post -->
+      <header class="news-post-header">
+        {date && <p class="news-post-date">{date}</p>}
+        <h1 class="news-post-title">{title}</h1>
+      </header>
+
+      <!-- Imagem principal (hero) -->
+      {heroImage && (
+        <div class="news-post-hero">
+          <img src={heroImage} alt={title} />
+        </div>
+      )}
+
+      <!-- Conteúdo do markdown vem aqui via <slot /> -->
+      <section class="news-post-content">
+        <slot />
+      </section>
+    </article>
+  </main>
+</BaseLayout>

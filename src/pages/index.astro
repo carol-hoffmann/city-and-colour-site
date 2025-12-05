@@ -1,11 +1,73 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout 
+  title="Home · City And Colour"
+  description="A fan-made page dedicated to City and Colour, created as part of an academic project."
+>
+  <main class="home-hero">
+    <!-- camada da imagem de fundo -->
+    <div class="home-hero-image-layer">
+      <img
+        id="home-hero-image"
+        src="/images/dallas1.jpg"
+        alt="City and Colour"
+        class="home-hero-image fade-in"
+      />
+    </div>
+
+    <!-- overlay escuro por cima da imagem -->
+    <div class="home-hero-overlay"></div>
+
+    <!-- conteúdo em cima -->
+    <div class="home-hero-content">
+      <h1 class="home-hero-title">City and Colour</h1>
+      <p class="home-hero-text">
+        This fan-made website is dedicated to City and Colour and was created as part of a
+        university assignment. Here you will find a short overview of the project, news-style
+        posts and a curated playlist celebrating Dallas Green’s music.
+      </p>
+    </div>
+
+    <!-- JS: slideshow simples com efeito de fade -->
+    <script type="module">
+      const imageElement = document.querySelector("#home-hero-image");
+
+      const heroImages = [
+        "/images/dallas1.jpg",
+        "/images/dallas.jpg",
+        "/images/dallas2.jpg",
+        "/images/dallas3.jpg",
+        "/images/dallas4.jpg",
+        "/images/dallas5.jpg",
+        "/images/dallas6.jpg",
+        "/images/dallas7.jpg",
+        "/images/green.jpeg"
+      ];
+
+      let currentIndex = 0;
+
+      function showNextImage() {
+        if (!imageElement) return;
+
+        // remove classe para reiniciar animação
+        imageElement.classList.remove("fade-in");
+
+        // força reflow para permitir reiniciar a animação
+        void imageElement.offsetWidth;
+
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        imageElement.src = heroImages[currentIndex];
+
+        imageElement.onload = () => {
+          imageElement.classList.add("fade-in");
+        };
+      }
+
+      if (imageElement) {
+        setInterval(showNextImage, 4000); // troca a cada 4 segundos
+      }
+    </script>
+  </main>
+</BaseLayout>
